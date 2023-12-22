@@ -1,0 +1,24 @@
+header{
+    min-width: 100%;
+    z-index: 99;
+}
+
+nav{
+    position: fixed;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-3);
+    border-bottom: 2px solid var(--color-1);
+}
+
+nav a{
+    margin: 10px;
+    list-style: none;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover{
+    color: var(--color-1);
+}

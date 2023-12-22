@@ -1,0 +1,36 @@
+form{
+    width: 65%;
+    background-color: var(--color-4);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+form div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Espacement entre les éléments du formulaire */
+}
+
+form label {
+    flex-basis: 220px; /* Largeur fixe pour les labels */
+    margin-right: 10px; /* Espacement entre le label et l'input/textarea */
+}
+
+/* Style appliqué à la fois aux input et textarea */
+form input[type="text"],
+form input[type="datetime-local"],
+form textarea {
+    flex-grow: 1; /* Permet aux éléments de prendre l'espace restant */
+    width: auto; /* S'assure que la largeur est automatiquement ajustée */
+}
+
+form span {
+    margin-left: 10px; /* Espacement après les inputs */
+}
+
+.container_submit_button{
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}

@@ -1,0 +1,55 @@
+.container p{
+    width: 70%;
+    text-align: center;
+}
+
+.event_image{
+    width: 70% !important;
+    height: auto;
+    border-radius: 15px;
+    margin: 20px;
+}
+
+.author{
+    position: fixed;
+    top: 100px;
+    left: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-1);
+    padding-left: 25px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.author img{
+    border-radius: 15px;
+    margin: 25px;
+    border: 2px solid white;
+}
+
+.author p{
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+h2{
+    text-align: center;
+}
+
+.localisation{
+    text-align: justify !important;
+}
+
+.description{
+    text-align: justify !important;
+    margin: 20px;
+    width: 70%;
+}
+
+.type{
+    margin: 20px;
+}

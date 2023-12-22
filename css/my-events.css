@@ -1,0 +1,32 @@
+.event-container{
+    width: 80%;
+}
+
+.event{
+    background-color: var(--color-4);
+    border-bottom: 2px solid var(--color-3);
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.event div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.event img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid var(--color-1);
+}
+
+.event p{
+    margin: 0px 20px;
+}

@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+    --color-1: #3A98B9;
+    --color-2: #a2d2fd;
+    --color-3: #e8d5c4;
+    --color-4: #fff8eb;
+    --color-text-1: #393939;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1,
+h2,
+h3,
+p,
+a,
+span,
+button,
+textarea,
+label,
+input {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-text-1);
+}
+
+.container {
+    min-height: 75vh;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+}
+
+h2 {
+    margin-bottom: 30px;
+}
+
+.form_container {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+    background-color: var(--color-4);
+    border-radius: 25px;
+    padding: 30px;
+}
+
+form {
+    margin: 20px 0px 20px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    display: flex;
+    margin-bottom: 10px;
+    /* Espacement entre les groupes de formulaire */
+    align-items: center;
+    /* Aligner les éléments verticalement */
+}
+
+.form-group label {
+    flex-basis: 120px;
+    /* Largeur fixe pour les labels */
+    margin-right: 10px;
+    /* Espacement entre le label et l'input */
+}
+
+.form-group input {
+    flex-grow: 1;
+    /* Permet aux inputs de prendre l'espace restant */
+}
+
+
+.custom_button {
+    background-color: var(--color-1);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+    margin: 15px;
+    font-weight: bold;
+    width: fit-content;
+    align-self: center;
+    text-decoration: none;
+}
+
+.custom_button:hover {
+    background-color: var(--color-2);
+    /* Changement de couleur au survol */
+    transform: translateY(-5px);
+    box-shadow: var(--color-text-1) 0px 20px 30px -10px;
+}
+
+.custom_button:focus {
+    outline: none;
+    /* Supprimer le contour lors de la sélection */
+}
+
+.custom_button_delete {
+    background-color: #ff7373 !important;
+}
+
+.custom_button_delete:hover {
+    background-color: #ff9f0f !important;
+}
+
+.custom_button_delete:focus {
+    outline: none;
+}
+
+h3 {
+    width: 100%;
+    text-align: center;
+}
+
+.link_redirection {
+    text-align: center;
+}
+
+.link_redirection a:hover {
+    color: var(--color-1);
+}
+
+.custom-file-input {
+    background-color: var(--color-1);
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+    margin: 15px;
+    font-weight: bold;
+    width: fit-content;
+    align-self: center;
+    text-align: center;
+}
+
+.custom-file-input:hover {
+    background-color: var(--color-2);
+    transform: translateY(-5px);
+    box-shadow: var(--color-text-1) 0px 20px 30px -10px;
+}
+
+.custom-file-input:focus {
+    outline: none;
+}
+
+.custom_button a {
+    color: white;
+    text-decoration: none;
+}

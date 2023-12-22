@@ -1,0 +1,12 @@
+footer{
+    width: 100%;
+    background-color: var(--color-3);
+    border-top: 2px solid var(--color-1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+footer p{
+    margin: 10px;
+}
