@@ -1,4 +1,4 @@
-// Écouter l'événement 'DOMContentLoaded', qui indique que le contenu du document a été chargé
+// Écouter l'fête 'DOMContentLoaded', qui indique que le contenu du document a été chargé
 document.addEventListener("DOMContentLoaded", function() {
     // Récupérer les éléments du DOM par leurs identifiants
     var fileInput = document.getElementById('fileInput'); // Champ de saisie de fichier
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Masquer initialement le bouton de soumission
     submitButton.style.display = 'none';
 
-    // Ajouter un gestionnaire d'événements pour réagir aux changements du champ de saisie de fichier
+    // Ajouter un gestionnaire d'fêtes pour réagir aux changements du champ de saisie de fichier
     fileInput.addEventListener('change', function() {
         // Vérifier si un fichier est sélectionné
         if (this.files && this.files[0]) {
