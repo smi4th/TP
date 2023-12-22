@@ -1,10 +1,10 @@
-// Écouter l'événement 'DOMContentLoaded' qui est déclenché lorsque le contenu initial du document HTML a été complètement chargé et analysé
+// Écouter l'fête 'DOMContentLoaded' qui est déclenché lorsque le contenu initial du document HTML a été complètement chargé et analysé
 document.addEventListener("DOMContentLoaded", function() {
     // Obtenir l'élément de saisie de fichier et l'élément d'aperçu d'image par leurs identifiants
     var fileInput = document.getElementById('fileInput');
     var imagePreview = document.getElementById('imagePreview');
 
-    // Ajouter un gestionnaire d'événements pour réagir au changement du champ de saisie de fichier
+    // Ajouter un gestionnaire d'fêtes pour réagir au changement du champ de saisie de fichier
     fileInput.addEventListener('change', function() {
         // Vérifier si un fichier est sélectionné
         if (this.files && this.files[0]) {

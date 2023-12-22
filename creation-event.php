@@ -12,7 +12,7 @@ require_once "includes/config.php";
 
 // Définir des variables et les initialiser avec des valeurs vides
 $title = $description = $event_date = $location = $image = "";
-$is_public = 1; // Valeur par défaut pour l'événement public
+$is_public = 1; // Valeur par défaut pour l'fête public
 $title_err = $description_err = $event_date_err = $location_err = $image_err = "";
 
 // Traitement des données du formulaire lors de la soumission
@@ -32,16 +32,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $description = trim($_POST["description"]);
     }
 
-    // Valider la date de l'événement
+    // Valider la date de l'fête
     if (empty(trim($_POST["event_date"]))) {
-        $event_date_err = "Veuillez entrer une date pour l'événement.";
+        $event_date_err = "Veuillez entrer une date pour l'fête.";
     } else {
         $event_date = trim($_POST["event_date"]);
     }
 
     // Valider le lieu
     if (empty(trim($_POST["location"]))) {
-        $location_err = "Veuillez entrer un lieu pour l'événement.";
+        $location_err = "Veuillez entrer un lieu pour l'fête.";
     } else {
         $location = trim($_POST["location"]);
     }
@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Tenter d'exécuter la déclaration préparée
             if ($stmt->execute()) {
-                // Rediriger vers la liste des événements ou une page de confirmation
+                // Rediriger vers la liste des fêtes ou une page de confirmation
                 header("location: event-list.php");
             } else {
                 echo "Oops! Quelque chose s'est mal passé. Veuillez réessayer plus tard.";
@@ -129,10 +129,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php include('includes/header.php'); ?> <!-- En-tête du site -->
 
     <div class="container">
-        <h2>Créer un Nouvel événement</h2>
+        <h2>Créer un Nouvel fête</h2>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
             <div>
-                <label>Titre du le événement</label>
+                <label>Titre du le fête</label>
                 <input type="text" name="title" maxlength="50" value="<?php echo $title; ?>">
                 <span><?php echo $title_err; ?></span>
             </div>
@@ -142,7 +142,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <span><?php echo $description_err; ?></span>
             </div>
             <div>
-                <label>Date du le événement</label>
+                <label>Date du le fête</label>
                 <input type="datetime-local" name="event_date" value="<?php echo $event_date; ?>">
                 <span><?php echo $event_date_err; ?></span>
             </div>
@@ -152,11 +152,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <span><?php echo $location_err; ?></span>
             </div>
             <div>
-                <label>événement Public</label>
+                <label>fête Public</label>
                 <input type="checkbox" name="is_public" <?php echo $is_public ? 'checked' : ''; ?>>
             </div>
             <div>
-                <label>Image du le événement</label>
+                <label>Image du le fête</label>
                 <label for="fileInput" class="custom-file-input">Selectionne une photo</label>
                 <input type="file" id="fileInput" name="profile_image" accept="image/*" style="display: none;">
                 <span><?php echo $image_err; ?></span>

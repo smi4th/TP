@@ -11,10 +11,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 // Inclure le fichier de configuration pour la connexion à la base de données
 require_once "includes/config.php";
 
-// Préparer une requête SQL pour récupérer les événements depuis la base de données
-// Les événements sont triés par date de manière décroissante
+// Préparer une requête SQL pour récupérer les fêtes depuis la base de données
+// Les fêtes sont triés par date de manière décroissante
 $sql = "SELECT id, title, description, event_date, location, is_public, image FROM events ORDER BY event_date DESC";
-$events = []; // Initialisation d'un tableau vide pour stocker les événements
+$events = []; // Initialisation d'un tableau vide pour stocker les fêtes
 
 // Exécuter la requête SQL et remplir le tableau $events avec les résultats
 if ($result = $pdo->query($sql)) {
@@ -36,7 +36,7 @@ unset($pdo);
 
 <head>
     <meta charset="UTF-8">
-    <title>Liste des Événements</title>
+    <title>Liste des fêtes</title>
     <link rel="stylesheet" href="css/root.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
@@ -58,7 +58,7 @@ unset($pdo);
                                 <h3><?php echo htmlspecialchars($event["title"]); ?></h3>
                                 <div class="image-container"> <!-- Ajout d'un conteneur pour l'image -->
                                     <?php if (!empty($event["image"])) : ?>
-                                        <img class="image-rect" src="data:image/jpeg;base64,<?php echo $event["image"]; ?>" alt="Image de l'événement">
+                                        <img class="image-rect" src="data:image/jpeg;base64,<?php echo $event["image"]; ?>" alt="Image de l'fête">
                                     <?php else : ?>
                                         <img src="/images/no-image.jpg" alt="Pas d'image disponible">
                                     <?php endif; ?>
@@ -72,7 +72,7 @@ unset($pdo);
                     </a>
                 <?php endforeach; ?>
             <?php else : ?>
-                <p>Aucun événement à afficher.</p>
+                <p>Aucun fête à afficher.</p>
             <?php endif; ?>
         </div>
     </div>
