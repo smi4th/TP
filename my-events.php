@@ -11,10 +11,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 // Inclure le fichier de configuration pour la connexion à la base de données
 require_once "includes/config.php";
 
-// Supprimer un événement
-// Vérifier si l'ID de l'événement à supprimer est passé dans l'URL
+// Supprimer un fête
+// Vérifier si l'ID de l'fête à supprimer est passé dans l'URL
 if (isset($_GET["delete"]) && !empty(trim($_GET["delete"]))) {
-    // Préparer une requête SQL pour supprimer l'événement
+    // Préparer une requête SQL pour supprimer l'fête
     $sql = "DELETE FROM events WHERE id = :id AND user_id = :user_id";
 
     if ($stmt = $pdo->prepare($sql)) {
@@ -23,7 +23,7 @@ if (isset($_GET["delete"]) && !empty(trim($_GET["delete"]))) {
         $stmt->bindParam(":user_id", $_SESSION["id"], PDO::PARAM_INT);
         $param_id = trim($_GET["delete"]);
 
-        // Exécuter la requête. En cas de succès, rediriger l'utilisateur vers la page de ses événements
+        // Exécuter la requête. En cas de succès, rediriger l'utilisateur vers la page de ses fêtes
         if ($stmt->execute()) {
             header("location: my-events.php");
             exit();
@@ -36,11 +36,11 @@ if (isset($_GET["delete"]) && !empty(trim($_GET["delete"]))) {
     unset($stmt);
 }
 
-// Récupérer les événements créés par l'utilisateur
+// Récupérer les fêtes créés par l'utilisateur
 $sql = "SELECT id, title, image FROM events WHERE user_id = :user_id";
 $events = [];
 
-// Préparer et exécuter la requête pour récupérer les événements
+// Préparer et exécuter la requête pour récupérer les fêtes
 if ($stmt = $pdo->prepare($sql)) {
     $stmt->bindParam(":user_id", $_SESSION["id"], PDO::PARAM_INT);
 
@@ -77,14 +77,14 @@ unset($pdo);
     <?php include('includes/header.php'); ?> <!-- En-tête du site -->
 
     <div class="container">
-        <h2>Mes Événements</h2>
+        <h2>Mes fêtes</h2>
         <div class="event-container">
             <?php if (count($events) > 0) : ?>
                 <?php foreach ($events as $event) : ?>
                     <div class="event">
                         <div>
                             <?php if (!empty($event["image"])) : ?>
-                                <img class="image-rect" src="data:image/jpeg;base64,<?php echo $event["image"]; ?>" alt="Image de l'événement">
+                                <img class="image-rect" src="data:image/jpeg;base64,<?php echo $event["image"]; ?>" alt="Image de l'fête">
                             <?php else : ?>
                                 <img src="/images/no-image.jpg" alt="Pas d'image disponible">
                             <?php endif; ?>
@@ -94,12 +94,12 @@ unset($pdo);
 
                         <div class="buttons">
                             <a class="custom_button" href="event-details.php?id=<?php echo $event["id"]; ?>">Détails</a>
-                            <a class="custom_button custom_button_delete" href="my-events.php?delete=<?php echo $event["id"]; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet événement ?');">Supprimer</a>
+                            <a class="custom_button custom_button_delete" href="my-events.php?delete=<?php echo $event["id"]; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet fête ?');">Supprimer</a>
                         </div>
                     </div>
                 <?php endforeach; ?>
             <?php else : ?>
-                <p>Aucun événement à afficher.</p>
+                <p>Aucun fête à afficher.</p>
             <?php endif; ?>
         </div>
     </div>

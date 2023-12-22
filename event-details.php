@@ -14,10 +14,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 // Inclure le fichier de configuration (config.php) pour accéder, par exemple, aux paramètres de la base de données
 require_once "includes/config.php";
 
-// Vérifier si l'ID de l'événement est présent dans l'URL (via GET) et s'assurer qu'il n'est pas vide
+// Vérifier si l'ID de l'fête est présent dans l'URL (via GET) et s'assurer qu'il n'est pas vide
 if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
-    // Préparer une requête SQL pour récupérer les détails de l'événement spécifique
-    // La requête joint les tables 'events' et 'users' pour récupérer des informations supplémentaires sur l'utilisateur qui a créé l'événement
+    // Préparer une requête SQL pour récupérer les détails de l'fête spécifique
+    // La requête joint les tables 'events' et 'users' pour récupérer des informations supplémentaires sur l'utilisateur qui a créé l'fête
     $sql = "SELECT events.*, users.image AS user_image, users.pseudo AS user_pseudo FROM events LEFT JOIN users ON events.user_id = users.id WHERE events.id = :id";
 
     if ($stmt = $pdo->prepare($sql)) {
@@ -29,12 +29,12 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
 
         // Tenter d'exécuter la requête préparée
         if ($stmt->execute()) {
-            // Vérifier si la requête a retourné une ligne, ce qui signifie que l'événement existe
+            // Vérifier si la requête a retourné une ligne, ce qui signifie que l'fête existe
             if ($stmt->rowCount() == 1) {
-                // Récupérer les données de l'événement sous forme de tableau associatif
+                // Récupérer les données de l'fête sous forme de tableau associatif
                 $event = $stmt->fetch(PDO::FETCH_ASSOC);
             } else {
-                // Si aucun événement n'est trouvé avec cet ID, rediriger vers une page d'erreur
+                // Si aucun fête n'est trouvé avec cet ID, rediriger vers une page d'erreur
                 header("location: error.php");
                 exit();
             }
@@ -48,7 +48,7 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
     unset($stmt);
     unset($pdo);
 } else {
-    // Rediriger vers une page d'erreur si l'ID de l'événement n'est pas spécifié dans l'URL
+    // Rediriger vers une page d'erreur si l'ID de l'fête n'est pas spécifié dans l'URL
     header("location: error.php");
     exit();
 }
@@ -69,10 +69,10 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
 
 <body>
     <div class="container">
-        <h2>Détails de l'Événement<br><?php echo htmlspecialchars($event["title"]); ?></h2>
-        <!-- Image de l'événement -->
+        <h2>Détails de l'fête<br><?php echo htmlspecialchars($event["title"]); ?></h2>
+        <!-- Image de l'fête -->
         <?php if (!empty($event["image"])) : ?>
-            <img class="event_image" src="data:image/jpeg;base64,<?php echo $event["image"]; ?>" alt="Image de l'événement" style="width:100%;height:auto;">
+            <img class="event_image" src="data:image/jpeg;base64,<?php echo $event["image"]; ?>" alt="Image de l'fête" style="width:100%;height:auto;">
         <?php endif; ?>
 
         <!-- Image de profil de l'utilisateur -->
@@ -80,15 +80,15 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
             <?php if (!empty($event["user_image"])) : ?>
                 <img src="data:image/jpeg;base64,<?php echo $event["user_image"]; ?>" alt="Image de profil de l'utilisateur" style="width:100px;height:100px;">
             <?php endif; ?>
-            <p>évènement de <br><?php echo htmlspecialchars($event["user_pseud"]); ?></p>
+            <p>fête de <br><?php echo htmlspecialchars($event["user_pseud"]); ?></p>
         </div>
 
         <p class="description"><b>Description :</b> <?php echo htmlspecialchars($event["description"]); ?></p>
 
-        <p class="localisation">L'évènement a lieu à <b><?php echo htmlspecialchars($event["location"]); ?></b>
+        <p class="localisation">L'fête a lieu à <b><?php echo htmlspecialchars($event["location"]); ?></b>
         le <b><?php echo htmlspecialchars($event["event_date"]); ?></b>.</p>
 
-        <p class="type">Il s'agit d'un évènement <b><?php echo $event["is_public"] ? 'Public' : 'Privé'; ?></b> !</p>
+        <p class="type">Il s'agit d'un fête <b><?php echo $event["is_public"] ? 'Public' : 'Privé'; ?></b> !</p>
     </div>
 
     <?php include('includes/footer.php'); ?>
