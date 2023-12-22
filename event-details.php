@@ -80,15 +80,15 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
             <?php if (!empty($event["user_image"])) : ?>
                 <img src="data:image/jpeg;base64,<?php echo $event["user_image"]; ?>" alt="Image de profil de l'utilisateur" style="width:100px;height:100px;">
             <?php endif; ?>
-            <p>évènement de <br><?php echo htmlspecialchars($event["user_pseudo"]); ?></p>
+            <p>fête de <br><?php echo htmlspecialchars($event["user_pseudo"]); ?></p>
         </div>
 
         <p class="description"><b>Description :</b> <?php echo htmlspecialchars($event["description"]); ?></p>
 
-        <p class="localisation">L'évènement a lieu à <b><?php echo htmlspecialchars($event["location"]); ?></b>
+        <p class="localisation">L'fête a lieu à <b><?php echo htmlspecialchars($event["location"]); ?></b>
         le <b><?php echo htmlspecialchars($event["event_date"]); ?></b>.</p>
 
-        <p class="type">Il s'agit d'un évènement <b><?php echo $event["is_public"] ? 'Public' : 'Privé'; ?></b> !</p>
+        <p class="type">Il s'agit d'un fête <b><?php echo $event["is_public"] ? 'Public' : 'Privé'; ?></b> !</p>
     </div>
 
     <?php include('includes/footer.php'); ?>
